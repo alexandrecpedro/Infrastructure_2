@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Creating an S3 bucket
+    aws_s3:
+      bucket: my-digitalhouse-stored
+      mode: create

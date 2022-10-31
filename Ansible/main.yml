@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Creating our server
+    ec2:
+      region: process.env.REGION
+      instance_type: process.env.INSTANCE_TYPE
+      image: process.env.AMI
+      wait: yes
+      wait_timeout: 500
+      volumes:
+        - device_name: process.env.DEVICE_NAME
+          volume_type": process.env.VOLUME_TYPE
+          volume_size: process.env.VOLUME_SIZE
+      vpc_subnet_id: process.env.VPC_SUBNET_ID
+      assign_public_ip: yes
